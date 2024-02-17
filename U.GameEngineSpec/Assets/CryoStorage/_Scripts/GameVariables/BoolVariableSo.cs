@@ -1,6 +1,3 @@
 using UnityEngine;
 [CreateAssetMenu(menuName = "GameVariable/BoolVariableSO")]
-public class BoolVariableSO : ScriptableObject
-{
-    public float Value;
-}
+public class BoolVariableSO : VariableSO<bool> {}

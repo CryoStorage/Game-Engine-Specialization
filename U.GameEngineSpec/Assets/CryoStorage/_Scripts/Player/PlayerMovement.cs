@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [SelectionBase]
 public class PlayerMovement : MonoBehaviour
@@ -9,18 +8,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float friction = 0.9f;
 
     [Header("Serialized Fields")] 
-    [SerializeField] private Vector3VariableSo inputValue;
+    [SerializeField] private Vector2VariableSo inputValue;
     
     private CharacterController _characterController;
-    private DefaultInputActions _inputActions;
+    private GameInputActions _inputActions;
     private Vector3 _dir;
     
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
-        _inputActions = new DefaultInputActions();
-        
+        _inputActions = new GameInputActions();
         _inputActions.Player.Enable();
+        
     }
     
     void Update()
@@ -37,12 +36,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-        Vector2 inputVector = _inputActions.Player.Move.ReadValue<Vector2>();
+        Vector2 inputVector = _inputActions.Player.LeftStick.ReadValue<Vector2>();
+        inputValue.value = inputVector;
         Vector3 force = new Vector3(inputVector.x, 0, inputVector.y);
-        inputValue.Value = force;
         _dir += force * (speed);
         _characterController.Move(_dir * Time.deltaTime);
     }
-
-
 }

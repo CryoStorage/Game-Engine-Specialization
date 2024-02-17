@@ -1,6 +1,3 @@
 using UnityEngine;
 [CreateAssetMenu(menuName = "GameVariable/IntVariableSo")]
-public class IntVariableSo : ScriptableObject
-{
-    public int Value;
-}
+public class IntVariableSo : VariableSO<int> {}
