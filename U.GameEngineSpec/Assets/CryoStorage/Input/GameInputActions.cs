@@ -47,19 +47,19 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Interact"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""ddb5ea85-9e9a-4694-9e5c-4d0b17d34718"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": ""WASDVector"",
                     ""id"": ""10984d1a-7042-48eb-bdbd-b09b855ccbb8"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -114,7 +114,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""LeftStickVector"",
                     ""id"": ""808ec777-96ef-4b17-8d53-fafbd2db4e9f"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -191,7 +191,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""ArrowsVector"",
                     ""id"": ""4a4b7734-8cb6-4301-99cb-36da8934f132"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -246,7 +246,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""RightStickVector"",
                     ""id"": ""453c896e-a34b-44a1-a067-2e8d5d8d922b"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

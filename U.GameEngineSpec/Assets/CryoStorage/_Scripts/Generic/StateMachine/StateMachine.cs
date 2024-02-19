@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 
 
-public abstract class StateMachine<EState> : MonoBehaviour where EState : Enum
+public abstract class StateMachine<TEState> : MonoBehaviour where TEState : Enum
 {
-    protected Dictionary<EState, State<EState>> States = new Dictionary<EState, State<EState>>();
-    protected State<EState> CurrentState;
+    protected Dictionary<TEState, State<TEState>> States = new Dictionary<TEState, State<TEState>>();
+    protected State<TEState> CurrentState;
 
     private void Start()
     {
@@ -15,7 +15,7 @@ public abstract class StateMachine<EState> : MonoBehaviour where EState : Enum
     
     private void Update()
     {
-        EState nextStateKey = CurrentState.GetNextState();
+        TEState nextStateKey = CurrentState.GetNextState();
         if (nextStateKey.Equals(CurrentState.StateKey))
         {
             CurrentState.UpdateState();
@@ -27,7 +27,7 @@ public abstract class StateMachine<EState> : MonoBehaviour where EState : Enum
         }
     }
 
-    private void ChangeState(EState stateKey)
+    private void ChangeState(TEState stateKey)
     {
         CurrentState.ExitState();
         CurrentState = States[stateKey];

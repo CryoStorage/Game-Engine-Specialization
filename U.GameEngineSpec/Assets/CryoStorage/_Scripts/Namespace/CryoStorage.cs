@@ -6,7 +6,7 @@ namespace CryoStorage
     {
         //this hard coded value aligns the angle to the forward vector
         private static float angleOffset = 1.5555555f;
-        public static Vector3 PointOnRadius(Vector3 center, float radius, float angle)
+        public static Vector3 PointOnRadius(Vector3 center, float angle, float radius = 1)
         {
             float rad = angle * Mathf.Deg2Rad;
             float xOffset = radius * Mathf.Cos(-rad + angleOffset);
@@ -34,6 +34,12 @@ namespace CryoStorage
         public static float InverseMap(float maxValue, float currentValue, float minValue)
         {
             var result = (maxValue - currentValue) / (maxValue - minValue) * (minValue - 1f) + 1f;;
+            return result;
+        }
+        
+        public static float LerpAngle(float currentAngle, float targetAngle, float angleChangeSpeed)
+        {
+            float result = Mathf.LerpAngle(currentAngle, targetAngle, angleChangeSpeed * Time.fixedDeltaTime);
             return result;
         }
         
