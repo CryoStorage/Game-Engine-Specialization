@@ -8,7 +8,7 @@ Repository created for the 8th semester game engine specialization course.
   
   playable in browser at: https://cryostorage.itch.io/lighthouse
 
-[![Lighthouse Title Screen](img/lighthouse.jpg)
+![Lighthouse Title Screen](img/lighthouse.jpg)
 
 > Architecture centers around unity events run through scriptable objects.
 > Which makes it easy to modify existing behaviours and create new ones with minimal code.  
