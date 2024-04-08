@@ -50,6 +50,9 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+# TextMesh Pro files
+[Aa]ssets/TextMesh*Pro/
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
@@ -73,3 +76,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Non redistributable assets
+[Aa]ssets/Non-Redistributable/*
