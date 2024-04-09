@@ -179,7 +179,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 99
-  m_Sprite: {fileID: 1116709051, guid: 468d919120c13114c9ac158a195f903e, type: 3}
+  m_Sprite: {fileID: 1623183103, guid: 468d919120c13114c9ac158a195f903e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -199,17 +199,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8232916872955395870}
+  - component: {fileID: 4092321374542023174}
   - component: {fileID: 7154841347526729725}
   - component: {fileID: 6103304705019934029}
   - component: {fileID: 6416514762495689349}
   - component: {fileID: 7222917866619494608}
-  - component: {fileID: 5208793063898805527}
   - component: {fileID: 4118470509674820367}
   - component: {fileID: 2418628771957536613}
   - component: {fileID: 7392241399953517837}
   - component: {fileID: 2299442037680383358}
   - component: {fileID: 2374601696732246675}
-  - component: {fileID: 4092321374542023174}
+  - component: {fileID: 2762672235777230882}
   m_Layer: 0
   m_Name: SimPlayer
   m_TagString: Untagged
@@ -234,6 +234,32 @@ Transform:
   - {fileID: 288607370814041856}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &4092321374542023174
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5539522988177784269}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 0.28
+  m_Radius: 0.2
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7154841347526729725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +267,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5539522988177784269}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d665d77d9a4e6048994239881b4bf9b, type: 3}
   m_Name: 
@@ -288,23 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2594eaff2dfbd14cb01ff72daf80ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimControllers: {fileID: 11400000, guid: 311b2722bbf249941a8d6b43310bffa8, type: 2}
+  playerAnimControllersSo: {fileID: 11400000, guid: 311b2722bbf249941a8d6b43310bffa8, type: 2}
   animControllerIndex: {fileID: 11400000, guid: f257271ee72b6be4a9eacfa4637af8a1, type: 2}
---- !u!114 &5208793063898805527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5539522988177784269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9563bb92221c364988968b49cdfa412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indicatorRenderer: {fileID: 2445970585485783588}
-  keyboardSprite: {fileID: 1623183103, guid: 468d919120c13114c9ac158a195f903e, type: 3}
-  controllerSprite: {fileID: 1116709051, guid: 468d919120c13114c9ac158a195f903e, type: 3}
 --- !u!114 &4118470509674820367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +332,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5208793063898805527}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerIndicatorsHandler, SimGame
         m_MethodName: SetIndicatorsGamepad
         m_Mode: 1
@@ -349,7 +360,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5208793063898805527}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerIndicatorsHandler, SimGame
         m_MethodName: SetIndicatorsKeyboard
         m_Mode: 1
@@ -445,29 +456,55 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!143 &4092321374542023174
-CharacterController:
+--- !u!114 &2762672235777230882
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5539522988177784269}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 0.28
-  m_Radius: 0.2
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1db5ab68fa882d42ab905ddc364fb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: c9b20f417a3c7aa40a9c3a529753be3e, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 609117741221798255}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7154841347526729725}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7222917866619494608}
+        m_TargetAssemblyTypeName: PlayerAnimHandler, SimGame
+        m_MethodName: SwapController
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2

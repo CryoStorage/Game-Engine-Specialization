@@ -1,13 +1,16 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerAnimHandler : MonoBehaviour
 {
     
+    [FormerlySerializedAs("playerAnimControllers")]
     [Header("Serialized References")]
-    [SerializeField] private PlayerAnimControllers playerAnimControllers;
+    [SerializeField] private PlayerAnimControllersSo playerAnimControllersSo;
 
     [Header("GameVariables")] 
-    [SerializeField] private IntVariableSo animControllerIndex; 
+    [SerializeField] private IntVariableSo intSelectedCharacterSo;
+    [SerializeField] private IntVariableSo intSelectedSkinSo;
     
     private Vector2 _velocity;
     private SpriteRenderer _spriteRenderer;
@@ -35,8 +38,13 @@ public class PlayerAnimHandler : MonoBehaviour
 
     public void SwapController()
     {
-        _animator.runtimeAnimatorController = playerAnimControllers.animatorControllers[animControllerIndex.value];
-        Debug.Log(animControllerIndex.value);
+        _animator.runtimeAnimatorController = playerAnimControllersSo.characters[intSelectedCharacterSo.value].baseController;
+        Debug.Log(intSelectedCharacterSo.value);
+    }
+
+    public void SwapSkin()
+    {
+        _animator.runtimeAnimatorController = playerAnimControllersSo.characters[intSelectedCharacterSo.value].skins[intSelectedSkinSo.value].controller;
     }
     
     private void HandleFlip()

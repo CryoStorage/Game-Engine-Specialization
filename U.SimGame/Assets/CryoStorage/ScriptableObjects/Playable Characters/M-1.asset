@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e55272ebc7d1fc4b907d2cc22eec2e2, type: 3}
+  m_Name: M-1
+  m_EditorClassIdentifier: 
+  baseController: {fileID: 9100000, guid: 7225985e6f7e6cc4788000b0a9eb7515, type: 2}
+  skins:
+  - name: Red outfit
+    controller: {fileID: 9100000, guid: 3f4c756221dc98147a881571eca00bb7, type: 2}
+    owned: 0
+  - name: Green outfit
+    controller: {fileID: 9100000, guid: a154a904f0a3948408827ea563fb4406, type: 2}
+    owned: 0
+  - name: White outfit
+    controller: {fileID: 9100000, guid: c2dd6506122362c4b965251d4bcc5563, type: 2}
+    owned: 0

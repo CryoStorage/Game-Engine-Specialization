@@ -1,27 +1,20 @@
-
 using UnityEngine;
 
 public class CharacterSwapper : MonoBehaviour
 {
-    [SerializeField] private IntVariableSo currentCharacterIndex;
-    [SerializeField] private PlayerAnimControllers playerAnimControllers;
+    [Header("GameVariables")]
+    [SerializeField] private IntVariableSo intSelectedCharacterIndexSo;
+    [SerializeField] private IntVariableSo intSelectedSkinIndexSo;
+    [SerializeField] private PlayerAnimControllersSo playerAnimControllersSo;
     public void NextCharacter()
     {
-        if (currentCharacterIndex.value >= playerAnimControllers.animatorControllers.Length - 1)
+        if(intSelectedSkinIndexSo.value > playerAnimControllersSo.characters[intSelectedCharacterIndexSo.value].skins.Length - 1)
         {
-            currentCharacterIndex.value = 0;
-            return;
+            intSelectedSkinIndexSo.value = 0;
         }
-        currentCharacterIndex.value += 1;
-    }
-    
-    public void PreviousCharacter()
-    {
-        if (currentCharacterIndex.value <= 0)
+        else
         {
-            currentCharacterIndex.value = playerAnimControllers.animatorControllers.Length - 1;
-            return;
+            intSelectedSkinIndexSo.value++;
         }
-        currentCharacterIndex.value -= 1;
     }
 }
