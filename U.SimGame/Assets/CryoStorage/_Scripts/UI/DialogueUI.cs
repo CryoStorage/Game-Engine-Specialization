@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class DialogueUI : MonoBehaviour
 {
     [Header("Serialized References")]
     [SerializeField] private GameObject nextIndicator;
-    [SerializeField] private TMPro.TextMeshProUGUI dialogueText;
-    [SerializeField] private TMPro.TextMeshProUGUI npcNameText;
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI npcNameText;
     
     [Header("GameVariables")]
     [SerializeField] private StringVariableSo currentNpcName;
@@ -37,9 +38,10 @@ public class DialogueUI : MonoBehaviour
         nextIndicator.SetActive(true);
         dialogueText.text = "";
 
-        if (_currentStringId >= text.Length-1)
+        if (_currentStringId >= text.Length)
         {
-            dialogueText.text = text[_currentStringId];
+            _isDialogueActive = false;
+            return;
         }
         else
         {
@@ -74,7 +76,6 @@ public class DialogueUI : MonoBehaviour
         DisplayDialogueSequence(_subStrings);
     }
     
-    // Recursive function splits the dialogue into substrings
     private string[] BuildSubstrings(string text, int startId = 0)
     {
         List<string> substrings = new List<string>();
@@ -102,7 +103,8 @@ public class DialogueUI : MonoBehaviour
 
         string sub = text.Substring(0, delimiterIndex);
         substrings.Add(sub);
-            
+        
         return substrings.Concat(BuildSubstrings(text.Substring(delimiterIndex + 1).Trim())).ToArray();
     }
+
 }

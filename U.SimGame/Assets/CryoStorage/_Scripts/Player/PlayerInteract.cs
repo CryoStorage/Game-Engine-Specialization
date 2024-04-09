@@ -17,8 +17,11 @@ public class PlayerInteract : MonoBehaviour
     
     private void Interact()
     {
+        if(_currentInteractable == null) return;
         if(!_canInteract) return;
         _currentInteractable.Interact();
+        _currentInteractable = null;
+        indicator.SetActive(false);
     }
     
     private void OnTriggerEnter(Collider other)

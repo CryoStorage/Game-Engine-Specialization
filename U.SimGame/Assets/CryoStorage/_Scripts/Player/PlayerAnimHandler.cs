@@ -36,6 +36,7 @@ public class PlayerAnimHandler : MonoBehaviour
     public void SwapController()
     {
         _animator.runtimeAnimatorController = playerAnimControllers.animatorControllers[animControllerIndex.value];
+        Debug.Log(animControllerIndex.value);
     }
     
     private void HandleFlip()

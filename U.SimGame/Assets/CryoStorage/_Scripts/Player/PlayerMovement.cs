@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _inputVector;
     private PlayerInputHandler _playerInputHandler;
     private CharacterController _characterController;
-    
+    private bool _isInDialogue;
 
     void Start()
     {
@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
+        if(_isInDialogue) return;   
         _inputVector = _playerInputHandler.InputActions.Player.LeftStick.ReadValue<Vector2>();
         HandleTranslation();
         var v = _characterController.velocity;
@@ -36,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _speed = baseSpeed;
         }
-        
     }
 
     private bool IsSprint()

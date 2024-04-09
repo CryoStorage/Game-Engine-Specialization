@@ -13,7 +13,8 @@ public class NPC : Interactable
     [Header("GameVariables")]
     [SerializeField] private StringVariableSo currentNpcName;
     [SerializeField] private StringVariableSo currentDialogue;
-    
+
+
     public override void Interact()
     {
         currentNpcName.value = npcName;
