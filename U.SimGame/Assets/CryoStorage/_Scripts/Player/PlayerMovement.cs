@@ -1,7 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(CharacterController))][SelectionBase]
 public class PlayerMovement : MonoBehaviour

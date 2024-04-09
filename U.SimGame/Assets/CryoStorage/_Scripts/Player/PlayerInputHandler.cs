@@ -1,24 +1,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerInputHandler : MonoBehaviour
 {
     public GameInputActions InputActions{get; private set;}
 
+    [FormerlySerializedAs("playerPressA")]
     [Header("GameEvents")] 
-    [SerializeField] private GameEvent playerPressA;
+    [SerializeField] private GameEvent playerPressInteract;
 
     [SerializeField] private GameEvent inputChangedKeyboard;
     [SerializeField] private GameEvent inputChangedGamepad;
     
-    private bool _isFirstPress = true;
     private InputDevice _currentDevice;
     
     private void OnEnable()
     { 
         InputActions = new GameInputActions(); 
         InputActions.Player.Enable();
-        InputActions.Player.Interact.performed += ctx => FirstPress();
+        InputActions.Player.Interact.performed += ctx => PlayerPressInteract();
         InputActions.Player.KeyboardAction.performed += ctx => InputChangeKeyboard();
         InputActions.Player.GamepadAction.performed += ctx => InputChangeGamepad();
     }
@@ -33,10 +34,8 @@ public class PlayerInputHandler : MonoBehaviour
         inputChangedGamepad.Raise();
     }
     
-    private void FirstPress()
+    private void PlayerPressInteract()
     {
-        if (!_isFirstPress)return;
-        playerPressA.Raise();
-        _isFirstPress = false;
+        playerPressInteract.Raise();
     }
 }

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 94b57fe818ebf534e94526f6d49e169e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - onBeginDialogue: {fileID: 11400000, guid: 794fe296b7442ea4db16c6634982795e, type: 2}
+  - onEndDialogue: {fileID: 11400000, guid: 14df44cc5bb0eba4d8dec8ae568f88ed, type: 2}
+  - currentNpcName: {fileID: 11400000, guid: c6a733a14508f464ebdf2005e077fa67, type: 2}
+  - currentDialogue: {fileID: 11400000, guid: 64987ba0427f0424b86e9a0b18aa89bc, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

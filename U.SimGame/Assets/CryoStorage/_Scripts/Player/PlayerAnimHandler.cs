@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerAnimHandler : MonoBehaviour
 {
@@ -17,10 +15,10 @@ public class PlayerAnimHandler : MonoBehaviour
     private PlayerMovement _playerMovement;
     private static readonly int Speed = Animator.StringToHash("speed");
 
-        int id = 0;
     private void Start()
     {
         Prepare();
+        SwapController();
     }
 
     private void Update()
@@ -28,9 +26,6 @@ public class PlayerAnimHandler : MonoBehaviour
         _velocity = _playerMovement.Velocity;
         SetSpeed();
         HandleFlip();
-        PlayerInputHandler handler = GetComponent<PlayerInputHandler>();
-
-        handler.InputActions.Player.Sprint.performed += ctx => DoSwap();
     }
     
     private void SetSpeed()
@@ -38,20 +33,9 @@ public class PlayerAnimHandler : MonoBehaviour
         _animator.SetFloat(Speed, _velocity.magnitude);
     }
 
-    private void DoSwap()
+    public void SwapController()
     {
-        id++;
-        if (id > playerAnimControllers.animatorControllers.Length - 1)
-        {
-            id = 0;
-        }
-        SwapController(id);
-        Debug.Log(id);
-    }
-    
-    private void SwapController(int index)
-    {
-        _animator.runtimeAnimatorController = playerAnimControllers.animatorControllers[index];
+        _animator.runtimeAnimatorController = playerAnimControllers.animatorControllers[animControllerIndex.value];
     }
     
     private void HandleFlip()
