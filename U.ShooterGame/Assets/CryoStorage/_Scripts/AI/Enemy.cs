@@ -29,12 +29,14 @@ public class Enemy : MonoBehaviour,IAimTarget, IAttackable, IPoolableGo<Enemy>
 
     private Rigidbody _rb;
     private MeshRenderer _meshRenderer;
+    private Animator _animator;
     private Collider _collider;
     private int _currentHealth;
     private EnemyState _currentState;
     private Transform _playerTransform;
     
     bool _initialized;
+    private static readonly int Destroyed = Animator.StringToHash("destroyed");
 
     private void Initialize()
     {
@@ -79,6 +81,7 @@ public class Enemy : MonoBehaviour,IAimTarget, IAttackable, IPoolableGo<Enemy>
     public void Die()
     {
         _currentState = EnemyState.Dead;
+        _animator.SetBool(Destroyed, true);
         onEnemyDied.Raise();
         StartCoroutine(CorDespawnTimer());
     }
@@ -98,8 +101,10 @@ public class Enemy : MonoBehaviour,IAimTarget, IAttackable, IPoolableGo<Enemy>
         _collider.enabled = true;
         _meshRenderer.enabled = true;
         _currentHealth = enemyParameters.maxHealth;
+        _animator.enabled = true;
         _currentState = EnemyState.Moving;
         _enemyMovement.WarpTo(position);
+        _animator.SetBool(Destroyed, false);
     }
 
     public void Deactivate()
@@ -108,6 +113,7 @@ public class Enemy : MonoBehaviour,IAimTarget, IAttackable, IPoolableGo<Enemy>
         _enemyShoot.enabled = false;
         _collider.enabled = false;
         _meshRenderer.enabled = false;
+        _animator.enabled = false;
         ParentPool.Release(this);
     }
     
@@ -119,7 +125,8 @@ public class Enemy : MonoBehaviour,IAimTarget, IAttackable, IPoolableGo<Enemy>
         _enemyShoot = GetComponent<EnemyShoot>();
         _enemyMovement = GetComponent<EnemyMovement>();
         var player = FindObjectOfType<Player>().gameObject;
-        _playerTransform = player.transform;
+        _animator = GetComponentInChildren<Animator>();
+        _playerTransform = player.transform;    
         
         _enemyShoot.Initiate(enemyParameters, _playerTransform, this);
         _enemyMovement.Initiate(enemyParameters, _playerTransform, this);

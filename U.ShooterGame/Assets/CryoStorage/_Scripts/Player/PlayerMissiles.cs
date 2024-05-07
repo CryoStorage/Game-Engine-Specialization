@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR;
 
 public class PlayerMissiles : PoolManager<Projectile>
 {
@@ -14,6 +16,10 @@ public class PlayerMissiles : PoolManager<Projectile>
     [SerializeField] private GameEvent onNoMissileAvailable;
     [SerializeField] private GameEvent onMissilesReplenished;
     
+    [Header("GameVariables")] 
+    [SerializeField] private IntVariableSo missileCountSo;
+    [SerializeField] private IntVariableSo missileSlotsSo;
+    
     private PlayerInputHandler _playerInputHandler;
     private float _shootTimer;
     private int _firedMissiles;
@@ -23,15 +29,20 @@ public class PlayerMissiles : PoolManager<Projectile>
         base.Start();
         
         _playerInputHandler = GetComponent<PlayerInputHandler>();
-        _playerInputHandler.InputActions.Player.Fire2.performed += _ => FireMissile();
+        _playerInputHandler.InputActions.Player.Fire2.performed += FireMissile;
 
     }
-    
+
+    private void OnDisable()
+    {
+        _playerInputHandler.InputActions.Player.Fire2.performed -= FireMissile;
+    }
+
     private void Update()
     {
         _shootTimer += Time.deltaTime;
     }
-    private void FireMissile()
+    private void FireMissile(InputAction.CallbackContext context)
     {
         if (_firedMissiles >= missileSlots) return;
         if (_shootTimer < missileCooldown) return;
@@ -40,6 +51,7 @@ public class PlayerMissiles : PoolManager<Projectile>
         missile.Activate(missileSpawnPoint.position, missileSpawnPoint.rotation);
         missile.gameObject.SetActive(true);
         _firedMissiles++;
+        missileCountSo.value = missileSlots - _firedMissiles;
         _shootTimer = 0;
     }
 
@@ -68,5 +80,6 @@ public class PlayerMissiles : PoolManager<Projectile>
     public void IncreaseCapacity()
     {
         missileSlots ++;
+        missileSlotsSo.value = missileSlots;
     }
 }

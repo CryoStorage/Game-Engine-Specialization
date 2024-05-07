@@ -19,4 +19,9 @@ public class CameraSmoothFollow : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, target.position + offset, smoothingFactor * _elapsedTime);
 
     }
+
+    public void StartFollowing()
+    {
+        transform.rotation = Quaternion.Euler(90,0,0);
+    }
 }

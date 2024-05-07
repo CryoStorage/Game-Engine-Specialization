@@ -1,9 +1,9 @@
 using UnityEngine;
 
-// Pool manager set up for consumption by MultiPoolsManager
+// Pool manager set up for consumption by EnemyMultiPoolsManager
 public class EnemyVariantPooler : PoolManager<Enemy>
 {
-    public MultiPoolsManager MultiPoolsManager { get; set; }
+    public EnemyMultiPoolsManager EnemyMultiPoolsManager { get; set; }
     [SerializeField] private int poolSize = 8;
     protected override void Start()
     {
@@ -18,7 +18,7 @@ public class EnemyVariantPooler : PoolManager<Enemy>
     protected override void OnReturnedToPool(Enemy go)
     {
         go.gameObject.SetActive(false);
-        MultiPoolsManager.RemoveEnemy(go);
+        EnemyMultiPoolsManager.RemoveEnemy(go);
         
     }
 

@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8319796255068316678
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1751269225318443715, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1204280e69984e6418d87804ff66a45c, type: 2}
+    - target: {fileID: 1775114511172933646, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.229
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775114511172933646, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.624
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758213288385710952, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_Name
+      value: ArtilleryEnemy Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224336295357736744, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: enemyParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: 86ce0a20c6c37c24291508d52fb1cde3,
+        type: 2}
+    - target: {fileID: 4884470942930310814, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5209289
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884470942930310814, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.39999962
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884470942930310814, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.023836
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884470942930310814, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884470942930310814, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884470942930310814, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884470942930310814, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884470942930310814, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884470942930310814, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884470942930310814, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790234125019396851, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3166666
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683094273217938044, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_Name
+      value: ArtilleryMech
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372035211061298469, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: poolableObjectPrefab
+      value: 
+      objectReference: {fileID: 5124679339752719187, guid: 71a3bf759719a1a49b3ab11d4fddb9e5,
+        type: 3}
+    - target: {fileID: 8765393280024098010, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8127127126941653199, guid: d542813e302c8b94abd3b5d528d9d137,
+        type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2758213288385710952, guid: e5d277cc75fdc404abb19720e9011a55,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2587585636351001092}
+  m_SourcePrefab: {fileID: 100100000, guid: e5d277cc75fdc404abb19720e9011a55, type: 3}
+--- !u!114 &1529922507208122659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7372035211061298469, guid: e5d277cc75fdc404abb19720e9011a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 8319796255068316678}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139249352948248430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8d98eb7c947764a918550bb73b5ece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &2112743019834516674 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 7936505861291425988, guid: e5d277cc75fdc404abb19720e9011a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 8319796255068316678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6139249352948248430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2758213288385710952, guid: e5d277cc75fdc404abb19720e9011a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 8319796255068316678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2587585636351001092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139249352948248430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1db5ab68fa882d42ab905ddc364fb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 155fe29efd065674d98ccdffb265b075, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6902609041999692590}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2112743019834516674}
+        m_TargetAssemblyTypeName: UnityEngine.AI.NavMeshAgent, UnityEngine
+        m_MethodName: set_isStopped
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1529922507208122659}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6902609041999692590 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3224336295357736744, guid: e5d277cc75fdc404abb19720e9011a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 8319796255068316678}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139249352948248430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00ecbc820d88e048aa434941b36d4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

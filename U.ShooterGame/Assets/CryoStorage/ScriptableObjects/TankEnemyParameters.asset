@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   damage: 15
-  speed: 2.5
+  speed: 3
   attackRange: 12
-  shootingError: 1
+  shootingError: 5
   attackRate: 1
   despawnTime: 6

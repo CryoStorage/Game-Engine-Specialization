@@ -43,9 +43,9 @@ public class EnemyShoot : PoolManager<Projectile>
 
         // Add randomness to predicted position within a certain range
         float randomOffsetX = Random.Range(-maxOffset, maxOffset);
-        float randomOffsetY = Random.Range(-maxOffset, maxOffset);
+        // float randomOffsetY = Random.Range(-maxOffset, maxOffset);
         float randomOffsetZ = Random.Range(-maxOffset, maxOffset);
-        Vector3 randomOffset = new Vector3(randomOffsetX, randomOffsetY, randomOffsetZ);
+        Vector3 randomOffset = new Vector3(randomOffsetX, 0, randomOffsetZ);
         predictedPosition += randomOffset;
 
         return predictedPosition;

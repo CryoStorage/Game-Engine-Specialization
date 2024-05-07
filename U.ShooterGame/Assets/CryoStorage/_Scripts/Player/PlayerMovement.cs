@@ -1,6 +1,8 @@
+using System;
 using CryoStorage;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [SelectionBase]
 public class PlayerMovement : MonoBehaviour, IAimTarget
@@ -8,6 +10,7 @@ public class PlayerMovement : MonoBehaviour, IAimTarget
     
     public Vector3 Position => transform.position;
     public Vector3 Velocity => _characterController.velocity;
+    public PlayerState State => _playerState;
     
     [Header("Player Movement")]
     [SerializeField] private float moveSpeed = 3f;
@@ -19,7 +22,7 @@ public class PlayerMovement : MonoBehaviour, IAimTarget
     [Header("Player Aiming")] 
     [SerializeField] private float lerpSpeed = 10f;
     [SerializeField] private float aimCircleRadius = 5f;
-    
+        
     private CharacterController _characterController;
     private PlayerInputHandler _playerInputHandler;
     
@@ -35,7 +38,7 @@ public class PlayerMovement : MonoBehaviour, IAimTarget
     
     private enum InputStyle{Keyboard, Controller}
 
-    private enum PlayerState
+    public enum PlayerState
     {
         Walking,
         Strafing,
@@ -51,13 +54,21 @@ public class PlayerMovement : MonoBehaviour, IAimTarget
         QualitySettings.vSyncCount = 2;
         _playerInputHandler = GetComponent<PlayerInputHandler>();
         _characterController = GetComponent<CharacterController>();
-        _playerInputHandler.InputActions.Player.BoostL.performed += _ => BoostLeft();
-        _playerInputHandler.InputActions.Player.BoostR.performed += _ => BoostRight();
-        _playerInputHandler.InputActions.Player.BoostL.canceled += _ => ExitStrafeMode();
-        _playerInputHandler.InputActions.Player.BoostR.canceled += _ => ExitStrafeMode();
+        _playerInputHandler.InputActions.Player.BoostL.performed += BoostLeft;
+        _playerInputHandler.InputActions.Player.BoostR.performed += BoostRight;
+        _playerInputHandler.InputActions.Player.BoostL.canceled += ExitStrafeMode;
+        _playerInputHandler.InputActions.Player.BoostR.canceled += ExitStrafeMode;
         _mainCam = Camera.main;
     }
-    
+
+    private void OnDisable()
+    {
+        _playerInputHandler.InputActions.Player.BoostL.performed -= BoostLeft;
+        _playerInputHandler.InputActions.Player.BoostR.performed -= BoostRight;
+        _playerInputHandler.InputActions.Player.BoostL.canceled -= ExitStrafeMode;
+        _playerInputHandler.InputActions.Player.BoostR.canceled -= ExitStrafeMode;
+    }
+
     private void Update()
     {
         switch (_playerState)
@@ -108,6 +119,7 @@ public class PlayerMovement : MonoBehaviour, IAimTarget
         Vector3 force = new Vector3(_leftStickVector.x, 0, _leftStickVector.y);
         _dir += force * moveSpeed;
         _characterController.Move(_dir * Time.fixedDeltaTime);
+        _playerState = PlayerState.Walking;
         // Apply Friction
         if(_dir.magnitude > 0.1f)
         {
@@ -115,6 +127,7 @@ public class PlayerMovement : MonoBehaviour, IAimTarget
         }else
         {
             _dir = Vector3.zero;
+            _playerState = PlayerState.Idle;
         }
     }
 
@@ -138,7 +151,7 @@ public class PlayerMovement : MonoBehaviour, IAimTarget
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lerpSpeed * Time.fixedDeltaTime);
     }
     
-    private void BoostRight()
+    private void BoostRight(InputAction.CallbackContext context)
     {
         if (_boostTimer < boostCooldown) return;
         _dir += transform.right * boostForce;
@@ -152,7 +165,7 @@ public class PlayerMovement : MonoBehaviour, IAimTarget
         _playerState = PlayerState.Strafing;
     }
     
-    private void BoostLeft()
+    private void BoostLeft(InputAction.CallbackContext context)
     {
         if (_boostTimer < boostCooldown) return;
         _dir -= transform.right * boostForce;
@@ -165,7 +178,7 @@ public class PlayerMovement : MonoBehaviour, IAimTarget
         _playerState = PlayerState.Strafing;
     }
     
-    private void ExitStrafeMode()
+    private void ExitStrafeMode(InputAction.CallbackContext context)
     {
         _playerState = PlayerState.Walking;
     }

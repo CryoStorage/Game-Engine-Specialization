@@ -1,10 +1,8 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IAttackable
 {
-    
-  
-    
     [Header("Player Settings")]
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private int maxShield = 3;
@@ -14,18 +12,38 @@ public class Player : MonoBehaviour, IAttackable
     [SerializeField] private GameEvent onPlayerDied;
     [SerializeField] private GameEvent onHealthReplenished;
     
+    [Header("GameVariables")]
+    [SerializeField] private IntVariableSo playerHealth;
+    [SerializeField] private IntVariableSo playerShield;
     
     private int _currentHealth;
     private int _currentShield;
+    private bool _regenInterrupted;
 
     private void Start()
     {
         _currentHealth = maxHealth;
         _currentShield = maxShield;
     }
+    
+    private void Update()
+    {
+        ShieldRegen();
+    }
 
+    private void ShieldRegen()
+    {
+        if(_regenInterrupted) return;
+        if (_currentShield >= maxShield) return;
+        _currentShield += Mathf.FloorToInt(shieldRechargeRate * Time.deltaTime);
+        playerShield.value = _currentShield;
+    }
+    
+    
     public void TakeDamage(int damage)
     {
+        _regenInterrupted = true;
+        StartCoroutine(CorShieldInterrupt());
         switch (damage)
         {
             //incoming damage is greater than current shield
@@ -45,6 +63,12 @@ public class Player : MonoBehaviour, IAttackable
         }
         
         if(_currentHealth <= 0) Die();
+    }
+    
+    IEnumerator CorShieldInterrupt()
+    {
+        yield return new WaitForSeconds(3f);
+        _regenInterrupted = false;
     }
 
     public void Die()
