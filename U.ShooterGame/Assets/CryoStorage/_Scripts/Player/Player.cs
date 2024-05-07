@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour, IAttackable
 {
@@ -10,20 +11,25 @@ public class Player : MonoBehaviour, IAttackable
     
     [Header("GameEvents")]
     [SerializeField] private GameEvent onPlayerDied;
+    [SerializeField] private GameEvent onPlayerHit;
     [SerializeField] private GameEvent onHealthReplenished;
     
+    [FormerlySerializedAs("playerHealth")]
     [Header("GameVariables")]
-    [SerializeField] private IntVariableSo playerHealth;
+    [SerializeField] private IntVariableSo playerHealthSo;
     [SerializeField] private IntVariableSo playerShield;
     
     private int _currentHealth;
     private int _currentShield;
     private bool _regenInterrupted;
+    private float elapsedTime;
 
-    private void Start()
+    private void OnEnable()
     {
         _currentHealth = maxHealth;
         _currentShield = maxShield;
+        playerHealthSo.value = _currentHealth;
+        playerShield.value = _currentShield;
     }
     
     private void Update()
@@ -33,10 +39,13 @@ public class Player : MonoBehaviour, IAttackable
 
     private void ShieldRegen()
     {
-        if(_regenInterrupted) return;
-        if (_currentShield >= maxShield) return;
-        _currentShield += Mathf.FloorToInt(shieldRechargeRate * Time.deltaTime);
         playerShield.value = _currentShield;
+        elapsedTime += Time.deltaTime;
+        if(_regenInterrupted) return;
+        if(_currentShield >= maxShield) return;
+        if(elapsedTime < shieldRechargeRate) return;
+        _currentShield += 1;
+        elapsedTime = 0;
     }
     
     
@@ -61,19 +70,24 @@ public class Player : MonoBehaviour, IAttackable
                 break;
             
         }
+        onPlayerHit.Raise();
+        playerHealthSo.value = _currentHealth;
+        playerShield.value = _currentShield;
         
         if(_currentHealth <= 0) Die();
     }
     
     IEnumerator CorShieldInterrupt()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7f);
         _regenInterrupted = false;
     }
 
     public void Die()
     {
         onPlayerDied.Raise();
+        playerHealthSo.value = maxHealth;
+        playerHealthSo.value = maxShield;
     }
 
     public void Replenish()

@@ -30,6 +30,7 @@ public class PlayerMissiles : PoolManager<Projectile>
         
         _playerInputHandler = GetComponent<PlayerInputHandler>();
         _playerInputHandler.InputActions.Player.Fire2.performed += FireMissile;
+        missileCountSo.value = missileSlots;
 
     }
 
@@ -53,6 +54,7 @@ public class PlayerMissiles : PoolManager<Projectile>
         _firedMissiles++;
         missileCountSo.value = missileSlots - _firedMissiles;
         _shootTimer = 0;
+        onMissileFired.Raise();
     }
 
     protected override void OnTakeFromPool(Projectile missile)

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -417193639389148305}
   - component: {fileID: 4766860381746778020}
   - component: {fileID: 8929621352562796019}
+  - component: {fileID: 2106312642548431625}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -190,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1db5ab68fa882d42ab905ddc364fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 155fe29efd065674d98ccdffb265b075, type: 2}
+  gameEvent: {fileID: 11400000, guid: 20336cec96931774da4df97aab44551d, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -265,6 +266,34 @@ MonoBehaviour:
       - m_Target: {fileID: 3655666009495351514}
         m_TargetAssemblyTypeName: CameraSmoothFollow, Project
         m_MethodName: StartFollowing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2106312642548431625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8228039572887858334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1db5ab68fa882d42ab905ddc364fb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 155fe29efd065674d98ccdffb265b075, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 392058803102304627}
+        m_TargetAssemblyTypeName: CameraShakeWrapper, Project
+        m_MethodName: ShakeLarge
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

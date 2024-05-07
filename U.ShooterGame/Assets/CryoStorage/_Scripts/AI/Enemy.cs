@@ -60,15 +60,9 @@ public class Enemy : MonoBehaviour,IAimTarget, IAttackable, IPoolableGo<Enemy>
     private bool CheckLineOfSight(float distance)
     {
         Debug.DrawRay(transform.position, _playerTransform.position - transform.position, Color.magenta);
-        Physics.Raycast
-        (
-            transform.position,
-            _playerTransform.position - transform.position,
-            out var hit,
-            distance,
-            rayMask
-        );
-        return hit.collider.CompareTag("Player");
+
+        var dir = _playerTransform.position - transform.position;
+        return Physics.Raycast(transform.position, dir, out var hit, distance, rayMask) && hit.collider.CompareTag("Player");
     }
     
     public void TakeDamage(int damage)

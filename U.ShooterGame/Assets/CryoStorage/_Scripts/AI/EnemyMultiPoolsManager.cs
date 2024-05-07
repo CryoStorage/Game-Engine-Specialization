@@ -65,7 +65,7 @@ public class EnemyMultiPoolsManager : MonoBehaviour
         _defeatedEnemies++;
         if (_defeatedEnemies < _waveTarget) return;
         onWaveComplete.Raise();
-        _waveComplete = true;
+        // _waveComplete = true;
         Debug.Log("Wave Complete!");
     }
 

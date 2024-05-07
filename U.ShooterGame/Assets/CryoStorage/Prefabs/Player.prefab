@@ -174,10 +174,11 @@ MonoBehaviour:
   maxShield: 60
   shieldRechargeRate: 1
   onPlayerDied: {fileID: 11400000, guid: 155fe29efd065674d98ccdffb265b075, type: 2}
+  onPlayerHit: {fileID: 11400000, guid: 20336cec96931774da4df97aab44551d, type: 2}
   onHealthReplenished: {fileID: 11400000, guid: 203713c8fa94c6b4db33cb19bb3e8f29,
     type: 2}
-  playerHealth: {fileID: 0}
-  playerShield: {fileID: 0}
+  playerHealthSo: {fileID: 11400000, guid: 4393b4097f02355498b5e0f21802a06b, type: 2}
+  playerShield: {fileID: 11400000, guid: 41b7b7507319e844493a0a7458ecf04c, type: 2}
 --- !u!114 &5857694602564184526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,9 +226,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolableObjectPrefab: {fileID: 1558376570519727717, guid: 13129a5bb19ed6349abdb9df2cddac3a,
     type: 3}
-  missileSlots: 100
+  missileSlots: 10
   missileSpawnPoint: {fileID: 1952892640537517512}
-  missileCooldown: 0
+  missileCooldown: 0.3
   onMissileFired: {fileID: 11400000, guid: 9136265fa1804a448b27d701115444e5, type: 2}
   onNoMissileAvailable: {fileID: 11400000, guid: 15d3c85081140644488f305caadb382c,
     type: 2}

@@ -35,6 +35,10 @@ public class PlayerAnimHandler : MonoBehaviour
                 _animator.SetBool(moving, false);
                 _animator.SetBool(destoyed, true);
                 break;
+            case PlayerMovement.PlayerState.Strafing:
+                _animator.SetBool(moving, false);
+                _animator.SetBool(destoyed, false);
+                break;
         }
     }
 }
