@@ -19,7 +19,11 @@ public class MultiPoolsManager : MonoBehaviour
     private float _spawnTimer;
     private ObjectPool<Enemy> _pools;
     private List<Enemy> _activeEnemies = new();
+    
     private Transform _playerTransform;
+    
+    private int _defeatedEnemies;
+    private int _waveTarget;
     protected  void Start()
     {
         _playerTransform = FindObjectOfType<Player>().transform;
@@ -49,7 +53,7 @@ public class MultiPoolsManager : MonoBehaviour
         var randomPool = enemyPools[Random.Range(0, enemyPools.Count)];
         var enemy = randomPool.GetEnemy();
         var spawnPoint = CryoMath.PointOnRadius(_playerTransform.position ,Random.Range(0,360), spawnRadius);
-        while (!CheckSpawnPointValid(spawnPoint))
+        while (CheckSpawnPointValid(spawnPoint))
         {
             spawnPoint = CryoMath.PointOnRadius(_playerTransform.position ,Random.Range(0,360), spawnRadius);
         }

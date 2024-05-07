@@ -16,6 +16,6 @@ MonoBehaviour:
   damage: 15
   speed: 2.5
   attackRange: 12
-  shootingError: 0.6
+  shootingError: 1
   attackRate: 1
   despawnTime: 6
