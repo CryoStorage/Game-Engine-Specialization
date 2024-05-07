@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a68b70445a4c07546b790ad27a8f3486
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - poolableObjectPrefab: {instanceID: 0}
+  - missileSpawnPoint: {instanceID: 0}
+  - onMissileFired: {fileID: 11400000, guid: 9136265fa1804a448b27d701115444e5, type: 2}
+  - onNoMissileAvailable: {fileID: 11400000, guid: 15d3c85081140644488f305caadb382c,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

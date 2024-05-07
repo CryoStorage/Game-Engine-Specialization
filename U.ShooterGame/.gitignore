@@ -68,6 +68,10 @@ TextMesh Pro.meta
 *.unitypackage
 *.app
 
+# Non-Redistributable assets in project
+Assets/Non-Redistributable/
+Assets/Non-Redistributable.meta
+
 # Crashlytics generated file
 crashlytics-build.properties
 
